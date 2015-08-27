@@ -1,0 +1,34 @@
+if (navigator.appName != "Microsoft Internet Explorer")
+document.captureEvents(Event.KEYDOWN)
+document.onkeydown = NetscapeKeyDown;
+function NetscapeKeyDown(key) { KeyDown(key.which); }  
+if (navigator.appName == "Konqueror") { document.write("<input width=0 height=0 style='width:0; height:0' name='kKatch' onBlur='kKatchFocus()' onKeyUp='kKatchChange()'>"); kKatchFocus(); }
+function kKatchFocus() { setTimeout("document.forms[0].kKatch.focus()",Spd[speed]); } function kKatchChange() { var vv=""+document.forms[0].kKatch.value; if (vv=="") return; KeyDown(vv.charCodeAt(0)); document.forms[0].kKatch.value=""; }
+var i, j, posx, posy, gover, sizx=8, sizy=18, Score, neko=0; speed=3;
+Fld = new Array(sizx); for (i=0; i<sizx; i++) { Fld[i]=new Array(sizy); } 
+RFld = new Array(sizx); for (i=0; i<sizx; i++) { RFld[i]=new Array(sizy); } 
+Pic= new Array(7); for (i=0; i<7; i++) { Pic[i] = new Image(); Pic[i].src = "img/nek"+i+".gif"; }
+Spd = new Array(); Spd[0]=0; Spd[1]=500; Spd[2]=250; Spd[3]=125; 
+NNe = new Array(); NNe[0]=0; NNe[1]=1; NNe[2]=3; NNe[3]=5;  
+function load() { document.open(); document.writeln("<table border=1 cellpadding=2 cellspacing=0 bgcolor=#FFFFFF><tr><td align=center>"); for (j=0; j<sizy-2; j++) { document.write("<NOBR>"); for (i=0; i<sizx; i++) document.write("<IMG src=img/nek0.gif border=0>"); document.write("</NOBR><BR>"); } document.writeln("</td></tr></table>"); document.close(); }
+function KeyDown(key) {
+if (gover) return;
+if (posy<0) return;
+switch (key) {
+case 37: case 52: case 65460: left(); break;
+case 39: case 54: case 65462: right(); break;
+case 40: case 50: case 53: case 65458: case 65461: fall(); break;
+case 38: case 56: case 65464: turn(); break;
+default: break; }}
+function right() { if (gover) return; if (posy<0) return; if (posx==sizx-1) return; if (Fld[posx+1][posy]>0) return; if (Fld[posx+1][posy+1]>0) return; if (Fld[posx+1][posy+2]>0) return; shift(1,0); }
+function left() { if (gover) return; if (posy<0) return; if (posx==0) return; if (Fld[posx-1][posy]>0) return; if (Fld[posx-1][posy+1]>0) return; if (Fld[posx-1][posy+2]>0) return; shift(-1,0); }
+function fall() { var dd=0; if (gover) return; if (posy<0) return; while ((posy+dd+3<=sizy-1)&&(Fld[posx][posy+dd+3]==0)) dd++; if (dd>0) shift(0, dd); }
+function turn() { if (gover) return; if (posy<0) return; var tt=Fld[posx][posy+2]; Fld[posx][posy+2]=Fld[posx][posy+1]; Fld[posx][posy+1]=Fld[posx][posy]; Fld[posx][posy]=tt; if (posy>=0) document.images[posx+sizx*posy].src = Pic[Fld[posx][posy+2]].src;  if (posy-1>=0) document.images[posx+sizx*(posy-1)].src = Pic[Fld[posx][posy+1]].src;  if (posy-2>=0) document.images[posx+sizx*(posy-2)].src = Pic[Fld[posx][posy]].src; }
+function shift(dx, dy) {  Fld[posx+dx][posy+dy+2]=Fld[posx][posy+2]; if (posy+dy>=0) document.images[posx+dx+sizx*(posy+dy)].src = Pic[Fld[posx][posy+2]].src;  Fld[posx][posy+2]=0; if (posy>=0) document.images[posx+sizx*(posy)].src = Pic[0].src; Fld[posx+dx][posy+dy+1]=Fld[posx][posy+1]; if (posy+dy-1>=0) document.images[posx+dx+sizx*(posy+dy-1)].src = Pic[Fld[posx][posy+1]].src;  Fld[posx][posy+1]=0; if (posy-1>=0) document.images[posx+sizx*(posy-1)].src = Pic[0].src;  Fld[posx+dx][posy+dy]=Fld[posx][posy]; if (posy+dy-2>=0) document.images[posx+dx+sizx*(posy+dy-2)].src = Pic[Fld[posx][posy]].src;  Fld[posx][posy]=0; if (posy-2>=0) document.images[posx+sizx*(posy-2)].src = Pic[0].src;  posx+=dx; posy+=dy; }
+function init(sspeed) { speed=sspeed; document.getElementById("preDiv").style.display="none"; document.getElementById("plaDiv").style.display="block"; for (i=0; i<sizx; i++) { for (j=0; j<sizy; j++) Fld[i][j]=0; } posx=0; posy=-1; gover=false; Score=0; refr(); setTimeout("run()",Spd[speed]); }
+function refr() { for (i=0; i<sizx; i++) { for (j=0; j<sizy-2; j++) document.images[i+sizx*j].src = Pic[Fld[i][j+2]].src; } document.gameForm.Score.value = Score; }
+function run() { var nn=0; if (posy<0) { do { posx=Math.floor(Math.random()*1000)%sizx; nn++ } while ((Fld[posx][2]>0)&&(nn<20)) if (Fld[posx][2]>0) { endgame(); return; } posy=0; Fld[posx][0]=Math.floor(Math.random()*1000)%6+1; Fld[posx][1]=Math.floor(Math.random()*1000)%6+1; Fld[posx][2]=Math.floor(Math.random()*1000)%6+1; document.images[posx].src = Pic[Fld[posx][2]].src; } else { if ((posy+3<=sizy-1)&&(Fld[posx][posy+3]==0)) shift(0,1); else { posy=-1; remov(); checkfull(); return; } } if (gover==false) { setTimeout("run()",Spd[speed]); } else {} }
+function anim(nno) { var xx, yy, nn=nno-1; if (nn==0) { for (xx=0; xx<sizx; xx++) { do { nn=0; for (yy=sizy-1; yy>=1; yy--) { if ((Fld[xx][yy]==0)&&(Fld[xx][yy-1]>0)) { Fld[xx][yy]=Fld[xx][yy-1]; Fld[xx][yy-1]=0; nn++; } } } while(nn>0) } refr(); setTimeout("remov()",80); return; } if (nn%2==1) { for (xx=0; xx<sizx; xx++) { for (yy=2; yy<sizy; yy++) { if (RFld[xx][yy]>0) { document.images[xx+sizx*(yy-2)].src = Pic[0].src; if (nn==1) Fld[xx][yy]=0; } } } } else { for (xx=0; xx<sizx; xx++) { for (yy=2; yy<sizy; yy++) { if (RFld[xx][yy]>0) document.images[xx+sizx*(yy-2)].src = Pic[Fld[xx][yy]].src; } } } setTimeout("anim("+nn+")",80); }
+function remov() { var xx, yy, cc, ss=Score; var amtneko=0; for (xx=0; xx<sizx; xx++) { for (yy=0; yy<sizy; yy++) RFld[xx][yy]=0; } for (xx=1; xx<sizx-1; xx++) { for (yy=0; yy<sizy; yy++) { cc=Fld[xx][yy]; if (cc>0) { if ((Fld[xx-1][yy]==cc)&&(Fld[xx+1][yy]==cc)) { RFld[xx-1][yy]=1; RFld[xx][yy]=1; RFld[xx+1][yy]=1; Score=Score+speed+(neko*NNe[speed]); amtneko=amtneko+NNe[speed]; } } } } for (xx=0; xx<sizx; xx++) { for (yy=1; yy<sizy-1; yy++) { cc=Fld[xx][yy]; if (cc>0) { if ((Fld[xx][yy-1]==cc)&&(Fld[xx][yy+1]==cc)) { RFld[xx][yy-1]=1; RFld[xx][yy]=1; RFld[xx][yy+1]=1; Score=Score+speed+(neko*NNe[speed]); amtneko=amtneko+NNe[speed]; } } } } for (xx=1; xx<sizx-1; xx++) { for (yy=1; yy<sizy-1; yy++) { cc=Fld[xx][yy]; if (cc>0) { if ((Fld[xx-1][yy-1]==cc)&&(Fld[xx+1][yy+1]==cc)) { RFld[xx-1][yy-1]=1; RFld[xx][yy]=1; RFld[xx+1][yy+1]=1; Score=Score+speed+(neko*NNe[speed]); amtneko=amtneko+NNe[speed]; } if ((Fld[xx-1][yy+1]==cc)&&(Fld[xx+1][yy-1]==cc)) { RFld[xx-1][yy+1]=1; RFld[xx][yy]=1; RFld[xx+1][yy-1]=1; Score=Score+speed+(neko*NNe[speed]); amtneko=amtneko+NNe[speed]; } } } } if (ss==Score) { neko=0; setTimeout("run()",Spd[speed]); } else { Score=Score+(amtneko-NNe[speed]); anim(6); } return; }
+function checkfull() { var space=false; for (i=0; i<sizx; i++) { for (j=0; j<sizy-2; j++) { if (document.images[i+sizx*j].src=="img/nek0.gif") { spce=true; break; } else {} } } if (space==false) {} else { endgame(); } }
+function endgame() { gover=true; document.getElementById("plaDiv").style.display="none"; document.getElementById("preDiv").style.display="block"; updateScore(Score); }

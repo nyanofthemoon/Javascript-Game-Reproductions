@@ -1,0 +1,68 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000
+        }
+
+        div,
+        body {
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA;
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<form name='gameForm'><br>
+    <table width=100%>
+        <tr>
+            <td valign=top width=54%>
+                <center><b style='font-size:24px'>NeverNeko</b></font><br><br><br>Create horizontal, vertical and
+                    diagonal rows of 3 or more Nekos!
+                </center>
+                <div id='preDiv' style='display:block'>
+                    <center><br><br><font size=+1 style='cursor:hand;color:#00EE00;' onClick='javascript:init(1);'><b>EASY</b></font><br><br><br><font
+                            size=+1 style='cursor:hand;color:yellow;' onClick='javascript:init(2);'><b>NORMAL</b></font><br><br><br><font
+                            size=+1 style='cursor:hand;color:#EE0000;' onClick='javascript:init(3);'><b>HARD</b></font>
+                </div>
+                <div id='plaDiv' style='display:none'><br><br><br><br>
+                    <center><b>Score</b>: <input name='Score' value='0' readonly
+                                                 style='font-family:Verdana; font-size:10px; width:120px; color:#FFFFFF; background-color:#555555; border:1px solid; border-color:#888888; padding:2px;'><br><br><br><font
+                            size=+1 style='cursor:hand;color:yellow;' onClick='javascript:endgame();'><b>END
+                        GAME</b></font></center>
+                </div>
+                <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Move
+                Left</b>: Left
+                Arrow<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Move Right</b>:
+                Right Arrow<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Drop
+                Neko</b>: Down
+                Arrow<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Switch
+                Neko</b>: Up Arrow<br></td>
+            <td width=46% align=center>
+                <script>load();</script>
+            </td>
+        </tr>
+    </table>
+</form>
+<script for=document event='onkeydown()' language='JScript'>if (window.event) KeyDown(window.event.keyCode);</script>
+
+</body>
+</html>
