@@ -1,0 +1,114 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000
+        }
+
+        div,
+        body {
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA;
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<form name='shroomForm'>
+    <table width=100% border=0>
+        <tr>
+            <td width=50%>
+                <script language='JavaScript'>loadGame();</script>
+            </td>
+            <td valign=top align=center><br><b style='font-size:24px'>NeverShrooms</b></font><br><br>NeverShrooms is an
+                awkward Tetris game. Create lines with those 'shrooms to prevent an invasion!<br><br><br><br><br><br>
+
+                <div id='startDiv' style='display:block;'><font size=+1 style='cursor:hand;color:#00EE00;'
+                                                                onClick='javascript:start();'><b>START GAME</b></font>
+                </div>
+                <div id='restartDiv' style='display:none;'><font size=+1 style='cursor:hand;color:yellow;'
+                                                                 onClick='javascript:endnow();'><b>END GAME</b></font>
+                </div>
+                <br><br><br><br>
+                <table cellpadding=2>
+                    <tr>
+                        <td><b>Score</b>:</td>
+                        <td align=right><input type=text
+                                               style='width:70px;background-color:#000000;color:#FFFFFF;border:0px;padding:2px;font-family: Verdana; font-size: 10px;'
+                                               name='Score' value='0'></td>
+                    </tr>
+                    <tr>
+                        <td><b>Level</b>:</td>
+                        <td align=right><input type=text
+                                               style='width:70px;background-color:#000000;color:#FFFFFF;border:0px;padding:2px;font-family: Verdana; font-size: 10px;'
+                                               name='Level' value='1'></td>
+                    </tr>
+                    <tr>
+                        <td><b>Cleared</b>:</td>
+                        <td align=right><input type=text
+                                               style='width:70px;background-color:#000000;color:#FFFFFF;border:0px;padding:2px;font-family: Verdana; font-size: 10px;'
+                                               name='Lines' value='0'></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2 align=center><br><br><br><br><b>Next Shrooms</b><br><br>
+                            <table border=0 width=100 cellpadding=0 cellspacing=0 bgcolor=#663300>
+                                <tr>
+                                    <td align=center valign=middle><br><br>
+                                        <table border=0 cellpadding=0 cellspacing=0>
+                                            <tr>
+                                                <td valign=middle width=12 style='font-size:1pt;'><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0></td>
+                                                <td valign=middle width=12 style='font-size:1pt;'><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0></td>
+                                                <td valign=middle width=12 style='font-size:1pt;'><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0><IMG
+                                                        src='img/shroom0.gif'
+                                                        border=0></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </td></tr></table></form>
+<script for=document event='onkeydown()' language='JScript'>if (window.event) KeyDown(window.event.keyCode);</script>
+
+</body>
+</html>
