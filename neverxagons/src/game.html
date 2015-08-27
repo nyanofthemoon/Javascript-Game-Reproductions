@@ -1,0 +1,90 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<b style='font-size:24px'>NeverXagons</b></font><br><br>Click to select pieces and move them to an empty field: you may
+move up to 2 fields in any direction.<br>Moving to a neighbouring field will replicate your piece.<br><br><br>
+<table width=600 border=0 cellspacing=0 cellpadding=0>
+    <tr>
+        <td align=left width=336>
+            <table border=0 cellpadding=0 cellspacing=0>
+                <tr>
+                    <td width=336 align=center valign=middle>
+                        <script language='JavaScript'>for (j = 0; j < 9; j++) {
+                            for (i = 0; i < 9; i++) {
+                                if ((i + j >= 4) && (i + j <= 12)) {
+                                    document.write('<IMG src=img/xgn0.gif border=0 onMouseDown=javascript:MouseDown(' + i + ',' + j + ');>');
+                                } else {
+                                }
+                            }
+                            document.write('<br>');
+                        }</script>
+                        <div id='winDiv'
+                             style='display:none; position:relative; top:-136; background:#000000; width:205; height:38;'>
+                            <br>Begin a NeverXagons Game!
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td valign=top width=264><br><br><br><br>
+            <table width=92% border=0 cellspacing=cellpadding=4>
+                <tr>
+                    <td colspan=2 align=center><input type=button value='Begin NeverXagons Game'
+                                                      style='font-family: Verdana; font-size: 10px;'
+                                                      onClick='javascript:startGame();'><br><br><br><br><br><br></td>
+                </tr>
+                <tr>
+                    <td width=55%><b>Total Board Moves</b>:</td>
+                    <td align=right width=45%>
+                        <div id='movesDiv'>0</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2><br></td>
+                </tr>
+                <tr>
+                    <td width=55%><b>Currently Playing</b>...</td>
+                    <td align=right width=45%>
+                        <div id='turnDiv'>NPC</div>
+                    </td>
+                </tr>
+            </table>
+            <br></td>
+    </tr>
+</table>
+<script language='Javascript'>startGame();
+setInterval('Timer()', 500);</script>
+
+
+</body>
+</html>
