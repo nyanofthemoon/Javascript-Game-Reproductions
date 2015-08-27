@@ -1,0 +1,129 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body
+        {
+            background:		#000
+        }
+        div,
+        body
+        {
+        ;font:				10px verdana, sans-serif
+        ;text-align:		center
+        ;color:				#555
+        }
+        b
+        {
+            font:				10px verdana, sans-serif
+        font-weight:		bold
+        }
+        td,tr,div
+        {
+            font:				10px verdana, sans-serif
+        }
+        input,select
+        {
+            font:				10px verdana, sans-serif
+        ;background-color:  #000
+        ;color:             #FFF
+        ;border:            0
+        }
+        #container {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body onload="startGame()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<div id='start' style='display:none;'><br><br><br><b style='font-size:24px'>NeverRoids</b><br><br><br><br><br>
+    <table width=725 border=0 cellspacing=0 cellpadding=0>
+        <tr>
+            <td width=33% align=center><b>Dragon Defender</b><br><br><img src='img/s1-0.gif' id='ship1'
+                                                                          style='background:#000000; padding: 1px;'
+                                                                          onClick='javascript:selShip(1);'><br><br>Ship
+                Shields: <font color=green>Maximum</font><br><br>
+                <table width=92% border=0 cellspacing=0 cellpadding=2>
+                    <tr>
+                        <td>Acceleration</td>
+                        <td align=right><font color=red>Low</font></td>
+                        <td rowspan=2 width=7%></td>
+                        <td>Max Speed</td>
+                        <td align=right><font color=red>Low</font></td>
+                    </tr>
+                    <tr>
+                        <td>Fire Power</td>
+                        <td align=right><font color=green>High</font></td>
+                        <td>Fire Range</td>
+                        <td align=right><font color=green>High</font></td>
+                    </tr>
+                </table>
+            </td>
+            <td width=33% align=center><b>Skylark Wings</b><br><br><img src='img/s0-0.gif' id='ship0'
+                                                                        style='background:#FFFFFF; padding: 1px;'
+                                                                        onClick='javascript:selShip(0);'><br><br>Ship
+                Shields: <font color=orange>Average</font><br><br>
+                <table width=92% border=0 cellspacing=0 cellpadding=2>
+                    <tr>
+                        <td>Acceleration</td>
+                        <td align=right><font color=orange>Med</font></td>
+                        <td rowspan=2 width=7%></td>
+                        <td>Max Speed</td>
+                        <td align=right><font color=orange>Med</font></td>
+                    </tr>
+                    <tr>
+                        <td>Fire Power</td>
+                        <td align=right><font color=orange>Med</font></td>
+                        <td>Fire Range</td>
+                        <td align=right><font color=orange>Med</font></td>
+                    </tr>
+                </table>
+            </td>
+            <td width=33% align=center><b>Phoenix Speedster</b><br><br><img src='img/s2-0.gif'
+                                                                            id='ship2'
+                                                                            style='background:#000000; padding: 1px;'
+                                                                            onClick='javascript:selShip(2);'><br><br>Ship
+                Shields: <font color=red>Minimum</font><br><br>
+                <table width=92% border=0 cellspacing=0 cellpadding=2>
+                    <tr>
+                        <td>Acceleration</td>
+                        <td align=right><font color=green>High</font></td>
+                        <td rowspan=2 width=7%></td>
+                        <td>Max Speed</td>
+                        <td align=right><font color=green>High</font></td>
+                    </tr>
+                    <tr>
+                        <td>Fire Power</td>
+                        <td align=right><font color=red>Low</font></td>
+                        <td>Fire Range</td>
+                        <td align=right><font color=red>Low</font></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br><br><br><br><img id='startbuttonpic' onmousedown='javascript:RestartGame();'><br><br><br><br><br>Use the Left
+    and Right Arrow Keys to Rotate the Ship.<br>Use the Up Arrow Key to Accelerate.<br>Use the SPACE Key to
+    Fire.<br><br><b>In case of emergency, use the Down Arrow Key to Teleport</b>!
+</div>
+<script language='JavaScript'>writeGame();</script>
+<div id='playership'
+     style='position:absolute; display:none; z-index:2; background:red;top:0; left:0; width:0; height:0'><img
+        id='playerpic' src='img/s0-0.gif'></div>
+<div id='health' style='position:absolute; left:10; top:410; display:none;'>
+    <table height=7 border=0 cellspacing=0 cellpadding=0>
+        <tr>
+            <td><img id='hon' src='img/hon.gif' width='149' height=7></td>
+            <td><img id='hoff' src='img/hoff.gif' width='1' height=7></td>
+        </tr>
+    </table>
+</div>
+<div style='position:absolute; left:695; top:295;'>
+    <img id='life0' style='display:none'>
+    <img id='life1' style='display:none'>
+    <img id='life2' style='display:none'>
+    <img id='life3' style='display:none'>
+</div>
+
+</body>
+</html>
