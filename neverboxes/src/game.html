@@ -1,0 +1,77 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<TABLE BORDER=0 WIDTH=575 CELLPADDING=0 CELLSPACING=0></TR></TR>
+    <TR>
+        <TD WIDTH=350>
+            <SCRIPT LANGUAGE=JAVASCRIPT>for (j = 0; j < gridSize; j++) {
+                for (i = 0; i < gridSize; i++) {
+                    document.write('<a href=\"javascript:addLine(utype,htype,' + j + ',' + i + ')\" onMouseover=\"highLight(htype,' + j + ',' + i + ')\" onMouseout=\"unHighLight(htype,' + j + ',' + i + ')\"><IMG src=img/hline0.gif BORDER=0 NAME=\"hline' + j + i + '\" WIDTH=35 HEIGHT=5></a>');
+                }
+                document.write('<IMG src=img/hline0.gif BORDER=0 NAME=\"hlineEnd\" WIDTH=35 HEIGHT=5>');
+                document.write('<br>');
+                for (i = 0; i < gridSize; i++) {
+                    document.write('<a href=\"javascript:addLine(utype,vtype,' + j + ',' + i + ')\" onMouseover=\"highLight(vtype,' + j + ',' + i + ')\" onMouseout=\"unHighLight(vtype,' + j + ',' + i + ')\"><IMG src=img/vline0.gif BORDER=0 NAME=\"vline' + j + i + '\" WIDTH=5 HEIGHT=30></a>');
+                    document.write('<IMG src=img/blank.gif BORDER=0 NAME=\"box' + j + i + '\" WIDTH=30 HEIGHT=30>');
+                }
+                document.write('<a href=\"javascript:addLine(utype,vtype,' + j + ',' + gridSize + ')\" onMouseover=\"highLight(vtype,' + j + ',' + gridSize + ')\" onMouseout=\"unHighLight(vtype,' + j + ',' + gridSize + ')\"><IMG src=img/vline0.gif BORDER=0 NAME=\"vline' + j + gridSize + '\" WIDTH=5 HEIGHT=30>');
+                document.write('<br>');
+            }
+            for (i = 0; i < gridSize; i++) {
+                document.write('<a href=\"javascript:addLine(utype,htype,' + gridSize + ',' + i + ')\" onMouseover=\"highLight(htype,' + gridSize + ',' + i + ')\" onMouseout=\"unHighLight(htype,' + gridSize + ',' + i + ')\"><IMG src=img/hline0.gif BORDER=0 NAME=\"hline' + gridSize + i + '\" WIDTH=35 HEIGHT=5>');
+            }
+            document.write('<IMG src=img/hline0.gif BORDER=0 NAME=\"hlineEnd\" WIDTH=35 HEIGHT=5>');
+            document.write('<br>');</SCRIPT>
+        </TD>
+        <TD ROWSPAN=6 align=center valign=top width=225><br><br><b><font size=+2>NeverBoxes</font></b><br><br>Complete
+            as many boxes as you can!<br><br><br><br><br><br><br><br><IMG NAME='buttonImg'
+                                                                          src='img/beginButton.gif'
+                                                                          onClick='javascript:clickButton();'><br><br><br><br><br><br><br>
+            <table width=210 border=0 cellspacing=2 cellpadding=0>
+                <tr>
+                    <td width=75%><b>Human</b></td>
+                    <td align=right><IMG src='img/0.gif' BORDER=0 NAME='udig1'><IMG
+                            src='img/0.gif' BORDER=0 NAME='udig2'></td>
+                </tr>
+                <tr>
+                    <td width=75%><b>NPC</b></td>
+                    <td align=right><IMG src='img/0.gif' BORDER=0 NAME='cdig1'><IMG
+                            src='img/0.gif' BORDER=0 NAME='cdig2'></td>
+                </tr>
+            </table>
+        </TD>
+    </TR>
+</TABLE>
+
+</body>
+</html>
