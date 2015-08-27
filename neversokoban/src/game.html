@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body onload='javascript:document.onkeydown=handleMovement; initializeLevel();' oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<b style='font-size:24px'>NeverSokoban</b><br><br>NeverSokoban is a puzzle in which you must push all boxes into the
+designated locations.<br>Use the Top, Right, Left and Down Arrow Keys to move the player and push boxes.<br><br><br>
+<table width=550 border=0 cellspacing=0 cellpadding=4>
+    <tr>
+        <td align=center width=33%><input type=button value='Restart Level' onClick='javascript:restartLevel();'
+                                          style='font-family: Verdana; font-size: 10px;'></td>
+        <td align=center width=33%><input type=button value='Next Level >>>' onClick='javascript:forceNext();'
+                                          style='font-family: Verdana; font-size: 10px;'></td>
+        <td align=center width=33%><input type=button value='( Begin New Game )' onClick='javascript:newGame();'
+                                          style='font-family: Verdana; font-size: 10px;'></td>
+    </tr>
+    <tr>
+        <td align=center width=33%>
+            <div id='puzzTable'></div>
+        </td>
+        <td align=center width=33%>
+            <div id='compTable'></div>
+        </td>
+        <td align=center width=33%>
+            <div id='lifeTable'></div>
+        </td>
+    </tr>
+    <tr height=330>
+        <td colspan=3 align=center height=330>
+            <table border=1>
+                <tr>
+                    <td>
+                        <div id='gameTable'></div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=3 align=center><b>Next Level</b>: Going to the Next Level will cost one life.<br><b>Restart
+            Level</b>: After <u>three</u>, each attempt to restart the Current Level will cost one life.
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
