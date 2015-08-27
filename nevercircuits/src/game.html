@@ -1,0 +1,96 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<form name='gform'><br>
+    <table border=0 cellpadding=0 cellspacing=0 width=97%>
+        <tr>
+            <td width=54%>
+                <table border=0 cellpadding=0 cellspacing=0>
+                    <script>board();</script>
+                </table>
+            </td>
+            <td width=46% valign=top><br>
+                <center><b style='font-size:24px'>NeverCircuits</b></font></center>
+                <br>Power-up the circuit in as few moves as possible! Click on a chip from the circuit to the left and
+                choose in which direction to send a surge of electricity.<br><br>
+
+                <div id='preDiv' style='display:block'>
+                    <center><br><br><br><font size=+1 style='cursor:hand;color:#00EE00;'
+                                              onClick='javascript:init(true,0)'><b>EASY - 5 Moves</b></font><br><br><br><br><br><font
+                            size=+1 style='cursor:hand;color:yellow;' onClick='javascript:init(true,1)'><b>NORMAL - 10
+                        Moves</b></font><br><br><br><br><br><font size=+1 style='cursor:hand;color:#EE0000;'
+                                                                  onClick='javascript:init(true,2)'><b>HARD - 15
+                        Moves</b></font>
+                </div>
+                <div id='plaDiv' style='display:none'>
+                    <map name='bmoves'>
+                        <area shape=circle coords='42,9,9' href='javascript:mov(0,-1)'>
+                        <area shape=circle coords='19,19,9' href='javascript:mov(-1,-1)'>
+                        <area shape=circle coords='65,19,9' href='javascript:mov(1,-1)'>
+                        <area shape=circle coords='9,44,9' href='javascript:mov(-1,0)'>
+                        <area shape=circle coords='75,44,9' href='javascript:mov(1,0)'>
+                        <area shape=circle coords='19,68,9' href='javascript:mov(-1,1)'>
+                        <area shape=circle coords='65,68,9' href='javascript:mov(1,1)'>
+                        <area shape=circle coords='42,79,9' href='javascript:mov(0,1)'>
+                    </map>
+                    <br><br>
+                    <center><img src='img/switch.gif' border=0
+                                 usemap='#bmoves'><br><br><b>Total Moves</b>: <input name='tot' readonly
+                                                                                     style='font-family:Verdana; font-size:10px; width:15px; color:#FFFFFF; background-color:#000000; border:0px solid; border-color:#000000; padding:0px;'><br><b>Maximum
+                        Moves</b>: <input size=3 name='max' readonly
+                                          style='font-family:Verdana; font-size:10px; width:15px; color:#BBBBBB; background-color:#000000; border:0px solid; border-color:#000000; padding:0px;'><br><br><br><br><font
+                            size=+1 style='cursor:hand;color:#00EE00;'
+                            onClick='javascript:init(false,level)'><b>RESTART</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                            size=+1 style='cursor:hand;color:yellow;' onClick='javascript:forcend()'><b>END
+                        GAME</b></font>
+                </div>
+                <div id='end1Div' style='display:none'>
+                    <center><br><br><br><br><br><br>You've powered-up the circuit... however, you've busted the maximum
+                        moves limit. :(<br><br><br><br><br><br><br><br><font size=+1 style='cursor:hand;color:#00EE00;'
+                                                                             onClick='javascript:init(false,level)'><b>RESTART</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                size=+1 style='cursor:hand;color:yellow;' onClick='javascript:forcend()'><b>END GAME</b></font>
+                </div>
+                <div id='end2Div' style='display:none'>
+                    <center><br><br><br><br><br><br><br>You've powered-up the
+                        circuit!<br><br><br><br><br><br><br><br><font size=+1 style='cursor:hand;color:#00EE00;'
+                                                                      onClick='javascript:init(false,level)'><b>RESTART</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                size=+1 style='cursor:hand;color:yellow;' onClick='javascript:forcend()'><b>END GAME</b></font>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>setInterval('move(true)', 133);</script>
+</form>
+
+</body>
+</html>
