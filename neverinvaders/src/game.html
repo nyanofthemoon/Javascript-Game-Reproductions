@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<div align='center' id='gameOver'><br><br><br><br><br><br><b
+        style='font-size:24px'>NeverInvaders</b><br><br><br><br><br>Use the Left and Right Arrow Keys to Move the Ship.
+    Use the Up or Down Arrow Key to Fire!<br><br><br><br><br><img src='img/start.gif'
+                                                                  onClick='RestartGame();'></div>
+<div id='spaceshipText' style='position:absolute; height:14; width:32; top:70; left:0 ;display:none'></div>
+<div id='spaceship' style='position:absolute; height:14; width:32; top:70; left:0 ;display:none'><img
+        src='img/bship.gif'></div>
+<div id='shipDiv' style='position:absolute;top:350px; display:none; left:250px; width:26px; height:16px'><img
+        id='shipImg' src='img/ship1.gif'></div>
+<div id='info' style='position:absolute; top:370; left:5;'>
+    <table border=0 cellpadding=0 cellspacing=0 width=95%>
+        <tr>
+            <td align=left><img style='display:block' id='life0' src='img/ship1.gif'> <img
+                    style='display:block' id='life1' src='img/ship1.gif'> <img
+                    style='display:block' id='life2' src='img/ship1.gif'> <img
+                    style='display:none' id='life3' src='img/ship1.gif'></td>
+            <td align=right valign=bottom><font size=+1>
+                <div id='score'></div></td>
+        </tr>
+    </table>
+</div>
+<script language=javascript>startNeverInvaders();</script>
+
+</body>
+</html>
