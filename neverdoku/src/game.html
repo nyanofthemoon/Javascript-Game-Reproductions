@@ -1,0 +1,90 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+
+        table.nevdtable td {
+            padding: 3px;
+        }
+
+        table.nevdtable td.vsep {
+            padding: 0;
+            width: 5px;
+            background: #999999;
+            color: #999999;
+        }
+
+        table.nevdtable td.hsep {
+            padding: 0;
+            height: 5px;
+            background: #999999;
+            color: #999999;
+        }
+
+        input.nevd_field {
+            padding: 0px;
+            width: 28px;
+            height: 25px;
+            font-size: 18px;
+            font-family: verdana;
+            text-align: center;
+            border: 1px solid #000000;
+            color: #000000;
+            background: #FFFFFF;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<div id='startDiv' style='display:block;'><br><br><br><br><br><b style='font-size:24px' r>NeverDoku - It's
+    Sudoku!</b></font><br><br><br><br><br><br>{ Select a Difficulty Level }<br><br><br><br><br><br><br><img
+        src=img/ndoku0.gif onClick='javascript:easyGame();'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+        src=img/ndoku1.gif onClick='javascript:averageGame();'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+        src=img/ndoku2.gif onClick='javascript:hardGame();'></div>
+<div id='playDiv' style='display:none;'>
+    <table border=0 cellpadding=0 cellspacing=0 width=99%>
+        <tr>
+            <td rowspan=2 width=55%>
+                <div id='nevd_gameplate'></div>
+            </td>
+            <td width=45%><br><br><br>
+
+                <div id='theMessage'><br></div>
+            </td>
+        </tr>
+        <tr>
+            <td valign=top rowspan=2 width=55% align=center><br><br><br><br><br><br><br><B>POSSIBLE SQUARE SOLUTIONS</B>:<br><br><br>
+
+                <div id='nevd_field_info'></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
