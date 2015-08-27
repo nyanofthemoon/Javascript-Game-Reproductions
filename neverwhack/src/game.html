@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body>
+
+<table width=100%>
+    <tr>
+        <td width=70% align=center><b style='font-size:24px'>NeverWhack</b><br><br>Discover and whack all of the snakes
+            in the Garden of<br>Lady Nyx at the left before all of yours get whacked!
+        </td>
+        <td width=30%>
+            <div id='startDiv' style='display:block;'><font size=+1 style='cursor:hand;color:#00EE00;'
+                                                            onClick='javascript:loadGame();'><b>NEW GAME</b></font>
+            </div>
+            <div id='restartDiv' style='display:none;'><font size=+1 style='cursor:hand;color:yellow;'
+                                                             onClick='javascript:endGame();'><b>END GAME</b></font>
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
+<table width=100%>
+    <tr>
+        <td width=50% align=center>
+            <div id='theGardenNT'></div>
+            <br>~ <b>Garden of the NPC</b> ~<br>A count of <input type=text id='snakesNT' value='11'
+                                                                   style='font-family:Verdana; font-size:10px; background-color:#000000;color:#FFFFFF;border:0px; padding:0px;width:20px'>/
+            <b>11</b> live snakes in the Garden.
+        </td>
+        <td width=50% align=center>
+            <div id='theGardenPL'></div>
+            <br>~ <b>Your Garden</b> ~<br>A count of <input type=text id='snakesPL' value='11'
+                                                             style='font-family:Verdana; font-size:10px; background-color:#000000;color:#FFFFFF;border:0px; padding:0px;width:20px'>/
+            <b>11</b> live snakes in the Garden.
+        </td>
+    </tr>
+</table>
+<script>loadGame();
+setInterval('setStatus();', 500);</script>
+
+
+</body>
+</html>
