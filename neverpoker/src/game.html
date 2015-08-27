@@ -1,0 +1,145 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<b><font size=+2>NeverPoker</font></b><br><br>
+<table width='700'>
+    <tr>
+        <td align='center' bgcolor='#003300' width='72%'><br>
+
+            <form name='pokerForm'>
+                <table width='95%' cellpadding='2'>
+                    <tr>
+                        <td align='center' bgcolor='#006600' width='50%'>My bet... <input type='text' name='bet'
+                                                                                          value='25' size='10'
+                                                                                          style='font-family: Verdana; font-size: 10px; color:#ffcc00; background-color: #000000;'>
+                            Gold
+                        </td>
+                        <td align='center' bgcolor='#006600' width='50%'>Savings... <input type='text' name='savings'
+                                                                                           value='100' size='10'
+                                                                                           style='font-family: Verdana; font-size: 10px; color:#ffcc00; background-color: #000000;'
+                                                                                           readonly> Gold
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' align='center' bgcolor='#006600'>Dealer says <input type='text' name='dealer'
+                                                                                            value='Place your bet and I will deal the cards.'
+                                                                                            size='44'
+                                                                                            style='font-family: Verdana; font-size: 10px; color:#ffcc00; background-color: #000000;'
+                                                                                            readonly></td>
+                    </tr>
+                </table>
+                <br><br>
+
+                <div id='dealDiv' style='display:block;'><input type='button' name='deal' value='DEAL NEVERPOKER CARDS'
+                                                                onclick='javascript:dealcards();'
+                                                                style='font-family: Verdana; font-size: 10px;'><br>
+                </div>
+                <div id='redealDiv' style='display:none;'><input type='button' name='deal' value='PLAY ANOTHER HAND'
+                                                                 onclick='javascript:dealcards();'
+                                                                 style='font-family: Verdana; font-size: 10px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                        type='button' name='deal' value='(LEAVE NEVERPOKER TABLE)'
+                        onclick='javascript:leaveTable(false);' style='font-family: Verdana; font-size: 10px;'><br>
+                </div>
+                <div id='brokeDiv' style='display:none;'><input type='button' name='deal'
+                                                                value='I AM BROKE... I WILL BORROW MONEY!'
+                                                                onclick='javascript:restart();'
+                                                                style='font-family: Verdana; font-size: 10px;'><br>
+                </div>
+                <div id='leftDiv' style='display:none;'>The NeverPoker table is now empty.<br></div>
+                <br><br>
+                <table width='95%'>
+                    <tr>
+                        <td align='center' width='20%'><img src='img/b.gif'
+                                                            onClick='javascript:flipcard(0);'></a></td>
+                        <td align='center' width='20%'><img src='img/b.gif'
+                                                            onClick='javascript:flipcard(1);'></a></td>
+                        <td align='center' width='20%'><img src='img/b.gif'
+                                                            onClick='javascript:flipcard(2);'></a></td>
+                        <td align='center' width='20%'><img src='img/b.gif'
+                                                            onClick='javascript:flipcard(3);'></a></td>
+                        <td align='center' width='20%'><img src='img/b.gif'
+                                                            onClick='javascript:flipcard(4);'></a></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+        <td align='center' width='3%'></td>
+        <td align='center' bgcolor='#333333' width='25%'>
+            <table width='200' cellpadding='4'>
+                <tr>
+                    <td align='center' width='80%'><b>HAND</b></td>
+                    <td align='center' width='20%'><b>WINNINGS</b></td>
+                </tr>
+                <tr>
+                    <td width='80%'>Royal Flush</td>
+                    <td width='20%'>1 : 2500</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Straight Flush</td>
+                    <td width='20%'>1 : 250</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Four of a Kind</td>
+                    <td width='20%'>1 : 100</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Full House</td>
+                    <td width='20%'>1 : 50</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Flush</td>
+                    <td width='20%'>1 : 20</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Straight</td>
+                    <td width='20%'>1 : 15</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Three of a Kind</td>
+                    <td width='20%'>1 : 4</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Two Pairs</td>
+                    <td width='20%'>1 : 3</td>
+                </tr>
+                <tr>
+                    <td width='80%'>Jacks or Better</td>
+                    <td width='20%'>1 : 2</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
