@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script src="game.js"></script>
+    <style type="text/css">
+        body {
+            background: #000;
+        }
+
+        div,
+        body {;
+            font: 10px verdana, sans-serif;
+            text-align: center;
+            color: #AAA
+        }
+
+        b {
+            font: 10px verdana, sans-serif font-weight : bold
+        }
+
+        td, tr, div {
+            font: 10px verdana, sans-serif
+        }
+
+        input, select {
+            font: 10px verdana, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            border: 0
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+<form name='gmbrd'><br>
+    <table width=99%>
+        <tr>
+            <td width=47%>
+                <script>init();</script>
+            </td>
+            <td width=53% valign=top><br>
+                <center><b style='font-size:24px'>NeverCheckers</b><br><br>A classic game of Checkers<br>Human player
+                    has the black pieces.
+                </center>
+                <br><br><br>
+
+                <div id='info'>
+                    <script>begin();</script>
+                </div>
+                <br><br><br><br>
+                <center><a href='game.html' target='_self'><font size=+1
+                                                                                                                 style='cursor:hand;color:#00EE00;'><b>START
+                    NEW GAME</b></font></a>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
